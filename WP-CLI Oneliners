@@ -1,0 +1,41 @@
+##### Wordpress script for version checking
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp core version --path=$i  --allow-root; done
+
+##### Wordpress plugin update check
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp plugin list --path=$i --update=available --allow-root; done
+
+##### Wordpress DB user check
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp user list --path=$i  --allow-root; done
+
+##### Wordpress theme update check
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp theme list --path=$i --update=available  --allow-root; done
+
+##### Wordpress active theme check
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp theme list --path=$i --status=active  --allow-root; done
+wdpress Installation path : $i" ;
+wp plugin list --path=$i --status=active  --allow-root; done
+
+##### Wordpress DB repair on all databases
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp db repair --path=$i  --allow-root; done
+
+##### Wordpress cache flush all sites
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp cache flush --path=$i  --allow-root; done
+
+##### Wordpress DB administrators list
+
+for i in $(find /home/*/public_html/* -name wp-config.php | rev | cut -d "/" -f2- |rev); do echo "Wordpress Installation path : $i" ;
+wp user list --role=administrator --path=$i  --allow-root; done
